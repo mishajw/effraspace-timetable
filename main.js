@@ -108,13 +108,35 @@ function getEventHtml(e) {
     .append(
       $("<div></div>")
         .attr("class", "event-date")
-        .text(formatDate(e.start.dateTime))
+        .text(getDateText(e))
+     )
+    .append(
+      $("<div></div>")
+        .attr("class", "event-time")
+        .text(getTimeText(e))
      );
 }
 
-function formatDate(dateTime) {
-  var date = new Date(dateTime);
+function getDateText(e) {
+  var date = new Date(e.start.dateTime);
 
-  return date.getDate() + "/" + (date.getMonth() + 1) + ", " + date.getHours() + ":" + date.getMinutes();
+  return date.getDate() + "/" + (date.getMonth() + 1);
+}
+
+function getTimeText(e) {
+  var start = new Date(e.start.dateTime);
+  var end = new Date(e.end.dateTime);
+
+  return formatTime(start) + " to " + formatTime(end);
+}
+
+function formatTime(date) {
+  return date.getHours() + ":" + pad(date.getMinutes(), 2);
+}
+
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
