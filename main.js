@@ -98,20 +98,20 @@ function fillWithCalendarId(id, containerId) {
 }
 
 function getEventHtml(e) {
-  return $("<div></div>")
+  return $("<tr></tr>")
     .attr("class", "event")
     .append(
-      $("<div></div>")
+      $("<td></td>")
         .attr("class", "event-title")
         .text(e.summary)
     )
     .append(
-      $("<div></div>")
+      $("<td></td>")
         .attr("class", "event-date")
         .text(getDateText(e))
      )
     .append(
-      $("<div></div>")
+      $("<td></td>")
         .attr("class", "event-time")
         .text(getTimeText(e))
      );
@@ -131,7 +131,15 @@ function getTimeText(e) {
 }
 
 function formatTime(date) {
-  return date.getHours() + ":" + pad(date.getMinutes(), 2);
+  var minutes = "";
+
+  if (date.getMinutes() != 0) {
+    minutes = ":" + pad(date.getMinutes(), 2);
+  }
+
+  var hours = date.getHours();
+
+  return (hours % 12) + minutes + (hours < 12 ? "am" : "pm");
 }
 
 function pad(n, width, z) {
