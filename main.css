@@ -1,0 +1,29 @@
+.calendar {
+    display: table;
+    width: 50%;
+}
+
+.event {
+    display: table-row;
+}
+
+.event-date, .event-title {
+    display: table-cell;
+    padding: 5px;
+    text-align: left;
+}
+
+.calendar-title {
+    margin: 10px;
+    text-align: center;
+    display: table-cell;
+    colspan: 100%;
+}
+
+#calendar1 {
+    float:left;
+}
+
+#calendar2 {
+    float:right;
+}

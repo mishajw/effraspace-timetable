@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div id="authorize-div" style="display: none">
+      <span>Authorize access to Google Calendar API</span>
+      <!--Button for the user to click to initiate auth sequence -->
+      <button id="authorize-button" onclick="handleAuthClick(event)">
+        Authorize
+      </button>
+    </div>
+    <div id="calendars-container">
+      <div class="calendar" id="calendar1">
+        <h2 class="calendar-title">effraspace 1</h2>
+        <div class="calendar-table" id="table1"></div>
+      </div>
+      <div class="calendar" id="calendar2">
+        <h2 class="calendar-title">effraspace 2</h2>
+        <div class="calendar-table" id="table2"></div>
+      </div>
+    </div>
+  </body>
+</html>
