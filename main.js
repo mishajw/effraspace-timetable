@@ -138,8 +138,11 @@ function formatTime(date) {
   }
 
   var hours = date.getHours();
+  var displayHours = hours; 
 
-  return (hours % 12) + minutes + (hours < 12 ? "am" : "pm");
+  if (hours > 12) displayHours -= 12;
+
+  return displayHours + minutes + (hours < 12 ? "am" : "pm");
 }
 
 function pad(n, width, z) {
