@@ -1,26 +1,57 @@
+
+* {
+  font: normal normal normal 16px/1.4em tahoma,tahoma-w01-regular,tahoma-w02-regular,tahoma-w10-regular,tahoma-w15--regular,tahoma-w99-regular,sans-serif 
+}
+
 .calendar {
     display: table;
-    width: 50%;
+    width: 49%;
 }
 
 .event {
     display: table-row;
 }
 
-.event-date, .event-title {
+.event-date, .event-title, .event-time {
     display: table-cell;
     padding: 5px;
     text-align: left;
+
+    font-size: 1.5em;
+}
+
+.event-title {
+    font-weight: bold;
+}
+
+.calendar-title {
+    font-size: 3em;
+    text-align: center;
 }
 
 .calendar-table {
-    width: 100%;
+    margin: 10px;
+    padding: 10px;
 }
 
 #calendar1 {
-    float:left;
+    float: left;
 }
 
 #calendar2 {
-    float:right;
+    float: right;
 }
+
+
+.table-striped>tbody>tr {
+    color: white;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #C20404;
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #e10505;
+}
+
