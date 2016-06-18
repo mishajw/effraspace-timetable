@@ -117,10 +117,25 @@ function getEventHtml(e) {
      );
 }
 
+var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
 function getDateText(e) {
   var date = new Date(e.start.dateTime);
 
-  return date.getDate() + "/" + (date.getMonth() + 1);
+  var ths = "th";
+  var dateNo = date.getDate();
+  var dateMod = dateNo % 10;
+
+  if (dateNo < 10 || dateNo > 20) {
+    if (dateMod == 1)
+      ths = "st";
+    else if (dateMod == 2)
+      ths = "nd";
+    else if (dateMod == 3)
+      ths = "rd";
+  }
+
+  return dateNo + ths +  " " + months[date.getMonth()];
 }
 
 function getTimeText(e) {
